@@ -101,4 +101,24 @@ function docReady(){
 	    	$('p#dropZone').append($('<div>上传出错了！</div>'));
 	    }
     });
+	
+	
+	//创建目录
+	$('#createDirForm #btnCreateDir').click(function(e){
+		e.preventDefault();
+		
+		var dir = $('#createDirForm #createdDir').val();
+		var recursion = $('#createDirForm #recursion').is(":checked") ? "true" : "false";
+		
+		$.ajax("http://ydc-dev-0:20000/dir",{
+			type:'POST',
+			data : $.param({name:dir,recursion:recursion}),
+			success : function(m){
+				alert('创建成功');
+			},
+			error : function(){
+				alert('服务不可用');
+			}
+		});
+	});
 }

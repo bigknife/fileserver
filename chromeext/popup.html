@@ -59,6 +59,9 @@
 				<li>
 					<a href="#upload" data-toggle="tab">上传文件</a>
 				</li>
+				<li>
+					<a href="#createDir" data-toggle="tab">新建目录</a>
+				</li>
 			</ul>
 			<div class="tab-content">
 				<div class="tab-pane " id="upload">
@@ -81,6 +84,21 @@
 					</div>
 				</div>
 				<div class="tab-pane active" id="view"></div>
+				<div class="tab-pane" id="createDir">
+					<form class="form-horizontal" id="createDirForm">
+						<div class="control-group">
+					    <label class="control-label" for="createdDir">目录路径</label>
+					    <div class="controls">
+					      <input type="text" id="createdDir" placeholder="目录路径">
+						  <label><input type="checkbox" id="recursion">递归创建</label>
+					    </div>
+						<div class="control-group">
+					    <label class="control-label" for="createdDir"></label>
+					    <div class="controls">
+							<button class="btn btn-primary" id="btnCreateDir">创建</button>
+					    </div>
+					</form>
+				</div>
 			</div>
 		</div>
 		
