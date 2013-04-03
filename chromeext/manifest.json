@@ -1,0 +1,18 @@
+{
+    "background": {
+        "scripts": [
+            "bg.js"
+        ]
+    }, 
+    "browser_action": {
+        "default_icon": "pencil.png", 
+        "default_title": "\u6211\u7684\u4e91\u5b58\u50a8"
+    }, 
+    "description": "\u7ba1\u7406\u6211\u81ea\u5df1\u7684\u4e91\u5b58\u50a8\u7cfb\u7edf", 
+    "manifest_version": 2, 
+    "name": "\u6211\u7684\u4e91\u5b58\u50a8", 
+    "permissions": [
+        "http://ydc-dev-0:20000/"
+    ], 
+    "version": "0.0.1"
+}

@@ -1,0 +1,7 @@
+#这是一个测试的配置文件
+#file server 监听的服务和端口
+listen = localhost:8080
+storePath = /opt/file
+uploadHtml = ./upload.html
+
+user:bigknife = szh520xq
