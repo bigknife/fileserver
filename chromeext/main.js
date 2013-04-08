@@ -2,6 +2,7 @@ function docReady(){
 	var username, password;
 	var withAuth = false;
 	var loadFileList;
+	var currentDir = '';
 	//加载目录信息
 	make_base_auth = function(){
 		return "Basic " + $.base64.encode( username +":" + password );
@@ -17,17 +18,29 @@ function docReady(){
 			f += "'>"
 			f += this.Name + "; 大小:" + (this.Size/1024) + "KB; " + (this.IsDir ? "文件夹" : "文件");
 			f += "</a></li>"
-			html += f
-			console.log(f)
+			html += f;
 		})
 		$('#view').html(html+"</ul>");
 		$('#dirList a').unbind('click');
 		$('#dirList a').click(function(e){
 			e.preventDefault();
+			console.log(currentDir);
 			var $f = $(this);
-			console.log($f)
 			if($f.attr('isDir') == "true"){
-				loadFileList($f.attr('href'),"false");
+				var href = $f.attr('href');
+				var root = href;
+				if(currentDir == '' && href == '../'){
+					alert('最顶层');
+					return ;
+				}
+				if(href == '../'){
+					root = currentDir.substring(0,currentDir.lastIndexOf('/'));
+					root = root || '/';
+					currentDir = root;
+				}else{
+					currentDir = href;
+				}
+				loadFileList(root,"false");
 			}else{
 				window.open("http://ydc-dev-0:20000/file?name=" + $f.attr('href'));
 			}
@@ -49,7 +62,6 @@ function docReady(){
 				if(withAuth == true){
 					xhr.setRequestHeader('Authorization', make_base_auth());
 				}
-				
 			}
 		});
 	}
