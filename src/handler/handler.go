@@ -28,6 +28,8 @@ func Init(cfg map[string]string) {
     handlerMap["GET /upload"] = RestHandler{Url: "/upload", Method: "GET", Handle: UploadPage}
     handlerMap["POST /file"] = RestHandler{Url: "/file", Method: "POST", Handle: PostFile}
     handlerMap["GET /file"] = RestHandler{Url: "/file", Method: "GET", Handle: GetFile}
+    handlerMap["GET /pic/width-height"] = RestHandler{Url: "/pic/width-height", Method: "GET", Handle: GetPicWidthHeight}
+    handlerMap["PUT /pic/width-height"] = RestHandler{Url: "/pic/width-height", Method: "PUT", Handle: TuningPicWH}
 }
 
 func HandleRoot(w http.ResponseWriter, r *http.Request) {
